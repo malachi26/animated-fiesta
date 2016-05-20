@@ -1,17 +1,25 @@
-def guessRandomNumber
-	randomNumber = rand(10) + 1
-	puts "Guess a number between 1 and 10"
-	guess = gets
-	if guess == randomNumber
-		puts "Right on, good guess"
-	elseif guess < randomNumber
-		puts "too low"
-	else
-		puts "too high"
+	$randomNumber = rand(10) + 1
+	
+	def guessRandomNumber	
+		puts "Guess a number between 1 and 10"
+		guess = gets
+		if Integer(guess) == $randomNumber 
+			puts "Right on, good guess"
+		elseif Integer(guess) < $randomNumber 
+			puts "too low"
+			puts "please, guess again"
+			guessRandomNumber
+		elseif Integer(guess) > $randomNumber 
+			puts "too high"
+			puts "please, guess again"
+			guessRandomNumber
+		else
+			puts "is that even a number? please, guess again"
+			guessRandomNumber
+		end
 	end
-end
-
-guessRandomNumber
-
-puts "bye"
-gets
+	
+	guessRandomNumber
+	
+	puts "bye"
+	gets
