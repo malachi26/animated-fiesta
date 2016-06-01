@@ -1,4 +1,4 @@
-$arrayOfNumbers = Array.new(16) { |num| num = num + 1}
+arrayOfNumbers = Array.new(16) { |num| num = num + 1}
 
 def printArray (array)
 	array.each do |num| 
@@ -22,4 +22,18 @@ def printBatchesOfFour (array)
 	end
 end
 
-printBatchesOfFour($arrayOfNumbers)
+def sslice4 (array, sliceSize)
+	array.each_slice(sliceSize) {
+		|x| 
+		puts "Next Slice" 
+		puts x
+	}	
+end
+
+printBatchesOfFour(arrayOfNumbers)
+puts "then we slice it up"
+sslice4(arrayOfNumbers, 8)
+puts "Slice it Smaller"
+sslice4(arrayOfNumbers, 4)
+puts "Slice it Smaller!"
+sslice4(arrayOfNumbers, 2)
