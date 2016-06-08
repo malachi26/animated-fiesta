@@ -12,15 +12,16 @@ class Tree
 		visit &block
 		children.each {|c| c.visit_all &block}
 	end
-	def visit(&block)
-		block.call self
+	def visit()
+		#block.call self
+		yield self
 	end
 end
 
 ruby_tree = Tree.new("ruby", [Tree.new("Reia"), Tree.new("MacRuby")])
 
 puts "Visiting a node"
-ruby_tree.visit { |node| puts node.node_name }
+ruby_tree.visit {self}# { |node| puts node.node_name }
 puts
 
 puts "visiting entire tree"
